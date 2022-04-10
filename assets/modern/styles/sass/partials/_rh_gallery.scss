@@ -1,0 +1,141 @@
+/**
+ * Gallery Template
+ */
+.rh_gallery {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.rh_gallery__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1.5rem;
+
+  .rh_gallery__item {
+    padding: 0 1.5rem 3rem 1.5rem;
+
+    &:hover {
+      .media_container {
+        opacity: 1;
+
+        a.zoom {
+          left: calc(50% - 65px);
+        }
+
+        a.link {
+          right: calc(50% - 65px);
+        }
+      }
+    }
+
+    figure {
+      position: relative;
+      margin: 0;
+
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    .media_container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 200;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      background: rgba(var(--rh-global-color-primary-rgb), .9);
+
+      a {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        z-index: 250;
+        width: 50px;
+        height: 50px;
+        margin-top: -25px;
+        opacity: 1;
+        transition: all 0.4s ease-in-out, background-color 0.3s ease-in-out, color 0.2s ease-in-out;
+        background-color: #fff;
+        border-radius: 100%;
+
+        &:hover {
+          background-color: var(--rh-global-color-primary-dark);
+          color: #fff;
+
+          svg {
+            fill: #fff;
+          }
+        }
+      }
+
+      a.zoom {
+        left: -50%;
+      }
+
+      a.link {
+        right: -50%;
+      }
+
+      svg {
+        width: 17px;
+        margin: auto;
+        transition: fill 0.2s ease-in-out;
+      }
+    }
+
+    .item-title {
+      margin: 1.5rem 0;
+      font-size: 15px;
+
+      a {
+        display: inline-block;
+        transition: all 0.2s linear;
+        color: var(--rh-global-color-headings);
+
+        &:hover {
+          color: var(--rh-global-color-primary);
+        }
+      }
+    }
+  }
+}
+
+.rh_gallery--2-columns {
+  width: 100%;
+
+  @include r(480) {
+    width: 50%;
+  }
+}
+
+.rh_gallery--3-columns {
+  width: 100%;
+
+  @include r(480) {
+    width: 50%;
+  }
+  @include r(1024) {
+    width: 33.3%;
+  }
+}
+
+.rh_gallery--4-columns {
+  width: 100%;
+
+  @include r(480) {
+    width: 50%;
+  }
+  @include r(1024) {
+    width: 33.3%;
+  }
+  @include r(1140) {
+    width: 25%;
+  }
+}
