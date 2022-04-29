@@ -56,5 +56,6 @@ if ( inspiry_show_header_search_form() ) {
 
 	</section><!-- /.rh_section rh_wrap rh_wrap--padding -->
 
+
 <?php
 get_footer();
